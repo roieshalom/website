@@ -21,22 +21,22 @@ h1 {
   flex-wrap: wrap;
 }
 
-/* 2x2 grid for medium screens */
+/* 2x2 grid for medium screens - now squares and closer */
 @media (min-width: 601px) and (max-width: 1024px) {
   .card-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    gap: 2rem;
+    gap: 1rem; /* less space between cards */
     justify-items: center;
     align-items: center;
     max-width: 900px;
     margin: 2rem auto;
   }
   .card {
-    width: 90%;
-    height: 340px;
-    max-width: 340px;
+    width: 220px;
+    height: 220px;
+    max-width: 220px;
   }
 }
 
