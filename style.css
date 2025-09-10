@@ -9,9 +9,43 @@ h1 {
   color: #0077cc;
   font-size: 2em;
   margin-bottom: 0.5em;
+  text-align: center;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+  height: 100px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  font-size: 1.4rem;
+  color: #444;
+  text-decoration: none;
+  font-weight: bold;
+  transition: box-shadow 0.2s, transform 0.2s, background 0.2s;
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  background: #eceffc;
+  color: #222;
+  transform: translateY(-4px) scale(1.03);
 }
 
 p {
   font-size: 1.1em;
   line-height: 1.6;
+  text-align: center;
 }
