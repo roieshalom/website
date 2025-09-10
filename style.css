@@ -14,19 +14,19 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: stretch;
-  gap: 2rem;
+  gap: 1.5rem;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  flex-wrap: nowrap; /* All cards in one row by default */
+  flex-wrap: nowrap;
 }
 .card {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  flex: 1 1 0px;      /* Equally divided and flexible */
-  min-width: 160px;
-  max-width: 260px;
+  flex: 1 1 220px; /* flexible width */
+  min-width: 180px;
+  max-width: 300px;
   height: 400px;
   background: #fff;
   box-shadow: 0 1px 3px rgba(0,0,0,0.08);
@@ -61,15 +61,15 @@ h1 {
   font-weight: bold;
 }
 
-/* For screens 801px and up: 1x4 row with equal flexible cards */
-
-/* Mid-size: force all 4 cards on same row, smaller gap */
+/* Mid-size screens: wrap to 2 cards per row */
 @media (max-width: 800px) and (min-width: 601px) {
   .card-container {
+    flex-wrap: wrap;
     gap: 1rem;
-    flex-wrap: nowrap;
   }
   .card {
+    flex: 1 1 45%;
+    min-width: 150px;
     max-width: none;
     height: 320px;
     font-size: 1rem;
@@ -82,7 +82,7 @@ h1 {
   }
 }
 
-/* Mobile: stack cards and fill width */
+/* Mobile: cards stacked full width */
 @media (max-width: 600px) {
   .card-container {
     flex-direction: column;
@@ -94,10 +94,10 @@ h1 {
     margin-right: 0;
   }
   .card {
+    flex: none;
     width: 96vw;
     min-width: 0;
     max-width: 440px;
-    margin: 0 auto;
     height: 220px;
     font-size: 1rem;
     padding: 0.6em 0.2em 1em 0.2em;
@@ -108,6 +108,7 @@ h1 {
     margin-top: 0.6em;
   }
 }
+
 p {
   font-size: 1.1em;
   line-height: 1.6;
