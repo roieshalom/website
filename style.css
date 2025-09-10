@@ -26,11 +26,11 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  width: 190px;
+  width: 200px;
   height: 400px; /* Changed from aspect-ratio to fixed 400px height (4x previous height) */
   min-width: 160px;
   background: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
   font-size: 1.1rem;
   color: #444;
   text-decoration: none;
@@ -42,7 +42,7 @@ h1 {
 }
 
 .card:hover {
-  box-shadow: 0 8px 40px rgba(0,0,0,0.13);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.13);
   background: #f4f6fa;
   color: #0060b6;
   transform: translateY(-6px) scale(1.025);
