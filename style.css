@@ -18,30 +18,88 @@ h1 {
   gap: 2rem;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  flex-wrap: wrap;
 }
 
 .card {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 160px;
-  height: 100px;
+  justify-content: flex-start;
+  width: 190px;
+  aspect-ratio: 9/16;
+  min-width: 160px;
   background: #fff;
-  border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   color: #444;
   text-decoration: none;
   font-weight: bold;
-  transition: box-shadow 0.2s, transform 0.2s, background 0.2s;
+  transition: box-shadow 0.25s, transform 0.25s, background 0.25s, color 0.25s;
   cursor: pointer;
+  padding: 0.7em 0.5em 1.2em 0.5em;
+  border-radius: 0;
 }
 
 .card:hover {
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-  background: #eceffc;
-  color: #222;
-  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.13);
+  background: #f4f6fa;
+  color: #0060b6;
+  transform: translateY(-6px) scale(1.025);
+}
+
+.card-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  margin-bottom: 0.8em;
+  margin-top: 1.2em;
+  background: #eee;
+}
+
+.card-label {
+  margin-top: auto;
+  padding-top: 0.7em;
+  font-size: 1.09em;
+  text-align: center;
+  font-weight: bold;
+}
+
+@media (max-width: 800px) {
+  .card-container {
+    gap: 1.2rem;
+  }
+  .card {
+    width: 150px;
+    min-width: 120px;
+    font-size: 0.98rem;
+    padding: 0.5em 0.3em 1em 0.3em;
+  }
+  .card-img {
+    width: 58px;
+    height: 58px;
+    margin-top: 0.8em;
+  }
+}
+
+@media (max-width: 600px) {
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+  }
+  .card {
+    width: 90vw;
+    min-width: 0;
+    max-width: 400px;
+    font-size: 1rem;
+    padding: 0.6em 0.2em 1em 0.2em;
+  }
+  .card-img {
+    width: 52px;
+    height: 52px;
+    margin-top: 0.6em;
+  }
 }
 
 p {
