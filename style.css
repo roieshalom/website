@@ -49,12 +49,7 @@ h1 {
 }
 
 .card-img {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  margin-bottom: 0.8em;
-  margin-top: 1.2em;
-  background: #eee;
+  display: none !important;
 }
 
 .card-label {
