@@ -4,14 +4,12 @@ body {
   color: #222;
   margin: 40px;
 }
-
 h1 {
   color: #0077cc;
   font-size: 2em;
   margin-bottom: 0.5em;
   text-align: center;
 }
-
 .card-container {
   display: flex;
   justify-content: center;
@@ -20,33 +18,13 @@ h1 {
   margin-bottom: 2rem;
   flex-wrap: wrap;
 }
-
-/* 2x2 grid for medium screens - now squares and closer */
-@media (min-width: 601px) and (max-width: 1024px) {
-  .card-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 1rem; /* less space between cards */
-    justify-items: center;
-    align-items: center;
-    max-width: 900px;
-    margin: 2rem auto;
-  }
-  .card {
-    width: 220px;
-    height: 220px;
-    max-width: 220px;
-  }
-}
-
 .card {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   width: 200px;
-  height: 400px; /* Changed from aspect-ratio to fixed 400px height (4x previous height) */
+  height: 400px;
   min-width: 160px;
   background: #fff;
   box-shadow: 0 1px 3px rgba(0,0,0,0.08);
@@ -59,18 +37,20 @@ h1 {
   padding: 0.7em 0.5em 1.2em 0.5em;
   border-radius: 0;
 }
-
 .card:hover {
   box-shadow: 0 2px 8px rgba(0,0,0,0.07);
   background: #fff;
   color: #444;
   transform: translateY(-2px) scale(1.01);
 }
-
 .card-img {
-  display: none !important;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  margin-bottom: 0.8em;
+  margin-top: 1.2em;
+  background: #eee;
 }
-
 .card-label {
   margin-top: auto;
   padding-top: 0.7em;
@@ -78,36 +58,39 @@ h1 {
   text-align: center;
   font-weight: bold;
 }
-
-@media (max-width: 800px) {
+@media (max-width: 800px) and (min-width: 601px) {
   .card-container {
-    gap: 1.2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+    justify-items: center;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
   }
   .card {
-    width: 150px;
-    min-width: 120px;
-    height: 320px; /* Also scale down for mobile, 4x previous 80px (or 100px) */
-    font-size: 0.98rem;
-    padding: 0.5em 0.3em 1em 0.3em;
+    width: 180px;
+    height: 280px; /* More rectangular */
+    font-size: 1rem;
+    padding: 0.6em 0.4em 1em 0.4em;
   }
   .card-img {
-    width: 58px;
-    height: 58px;
-    margin-top: 0.8em;
+    width: 70px;
+    height: 70px;
+    margin-top: 1em;
   }
 }
-
 @media (max-width: 600px) {
   .card-container {
     flex-direction: column;
     align-items: center;
     gap: 1.2rem;
+    display: flex;
   }
   .card {
     width: 90vw;
     min-width: 0;
     max-width: 400px;
-    height: 240px; /* Smaller for mobile, 4x previous 60px (or 100px) */
+    height: 240px;
     font-size: 1rem;
     padding: 0.6em 0.2em 1em 0.2em;
   }
@@ -117,7 +100,6 @@ h1 {
     margin-top: 0.6em;
   }
 }
-
 p {
   font-size: 1.1em;
   line-height: 1.6;
