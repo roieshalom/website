@@ -66,6 +66,9 @@ h1 {
   .card-container {
     flex-wrap: wrap;
     gap: 1rem;
+    padding: 0 1rem;       /* horizontal padding */
+    box-sizing: border-box;
+    justify-content: center;
   }
   .card {
     flex: 1 1 45%;
@@ -82,22 +85,22 @@ h1 {
   }
 }
 
-/* Mobile: cards stacked full width */
+/* Mobile: cards stacked full width and centered */
 @media (max-width: 600px) {
   .card-container {
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
     flex-wrap: nowrap;
-    width: 100vw;
-    margin-left: 0;
-    margin-right: 0;
+    width: 96vw;
+    max-width: 440px;
+    margin: 0 auto;
+    box-sizing: border-box;
   }
   .card {
     flex: none;
-    width: 96vw;
+    width: 100%;
     min-width: 0;
-    max-width: 440px;
     height: 220px;
     font-size: 1rem;
     padding: 0.6em 0.2em 1em 0.2em;
