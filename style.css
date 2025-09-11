@@ -20,6 +20,7 @@ h1 {
   margin-top: 40px;
 }
 
+/* Base card style */
 .card {
   background: #18191a;
   border: 1px solid #444;
@@ -29,25 +30,27 @@ h1 {
   width: 200px;
   height: 200px;
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: flex-start; /* align items to top */
+  justify-content: flex-start; /* align items to left */
   text-decoration: none;
   transition: none;
   position: relative;
   overflow: hidden;
   font-size: 1.3rem;
-  font-weight: 400;
+  font-weight: 200; /* thinner font */
   letter-spacing: 0.02em;
-  text-align: left;
+  text-align: left; /* text aligned left */
   padding: 0;
   cursor: pointer;
 }
 
+/* Remove shadow and movement on hover */
 .card:hover {
   box-shadow: none;
   transform: none;
 }
 
+/* Animated background for each card (hidden by default) */
 .card::before {
   content: "";
   position: absolute;
@@ -107,8 +110,8 @@ h1 {
   position: relative;
   z-index: 1;
   width: 100%;
-  padding: 14px 16px 0 16px;
-  font-weight: 400;
+  padding: 14px 16px 0 16px; /* top and side padding */
+  font-weight: 200; /* thinner font */
   text-align: left;
   align-self: flex-start;
   justify-self: flex-start;
@@ -132,5 +135,5 @@ p {
   font-size: 1.1em;
   line-height: 1.6;
   text-align: center;
-  font-weight: 400;
+  font-weight: 200; /* thinner font */
 }
