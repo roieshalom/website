@@ -4,12 +4,14 @@ body {
   color: #eee;
   margin: 40px;
 }
+
 h1 {
   color: #0077cc;
   font-size: 2em;
   margin-bottom: 0.5em;
   text-align: center;
 }
+
 .card-container {
   display: flex;
   flex-wrap: wrap;
@@ -17,8 +19,10 @@ h1 {
   justify-content: center;
   margin-top: 40px;
 }
+
 .card {
-  background: #232324;
+  background: #18191a; /* Same as background */
+  border: 1.5px solid #444; /* Thin, visible outline */
   color: #fff;
   border-radius: 22px;
   box-shadow: 0 4px 32px rgba(0,0,0,0.4);
@@ -38,14 +42,51 @@ h1 {
   padding: 0;
   cursor: pointer;
 }
+
+/* Card animated background on hover */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+  background: linear-gradient(120deg, #2e2d61 0%, #3a536b 45%, #0c1e36 100%);
+  background-size: 200% 200%;
+  animation: spacey-gradient 3s linear infinite;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+@keyframes spacey-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Make text above the animation */
+.card-label {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 0 10px;
+}
+
+/* Keep other effects */
 .card:hover {
   box-shadow: 0 8px 40px rgba(0,0,0,0.6);
   transform: translateY(-4px) scale(1.03);
 }
-.card-label {
-  width: 100%;
-  padding: 0 10px;
-}
+
 @media (max-width: 900px) {
   .card {
     width: 140px;
@@ -56,6 +97,7 @@ h1 {
     gap: 14px;
   }
 }
+
 p {
   font-size: 1.1em;
   line-height: 1.6;
