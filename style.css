@@ -14,7 +14,8 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   gap: 22px;
-  justify-content: flex-start;
+  /* Center align cards horizontally */
+  justify-content: center;
   margin-top: 40px;
 }
 .card {
@@ -32,15 +33,19 @@ h1 {
   position: relative;
   overflow: hidden;
   font-size: 1.3rem;
-  font-weight: 500;
+  /* Use normal font weight instead of bold */
+  font-weight: normal;
+  /* Use professional serif font */
+  font-family: 'Georgia', serif;
   letter-spacing: 0.02em;
   text-align: center;
   padding: 0;
   cursor: pointer;
 }
 .card:hover {
-  box-shadow: 0 8px 40px rgba(0,0,0,0.6);
-  transform: translateY(-4px) scale(1.03);
+  /* More subtle hover effect: softer shadow and less scaling */
+  box-shadow: 0 6px 24px rgba(0,0,0,0.3);
+  transform: translateY(-2px) scale(1.01);
 }
 .card-label {
   width: 100%;
