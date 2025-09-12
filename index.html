@@ -2,64 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <!-- Use Noto Sans from Google Fonts below: -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <title>Roie Shalom</title>
-  <script>
-    // Theme switching based on user local time
-    function setDayNightTheme() {
-      var now = new Date();
-      var hour = now.getHours();
-      var body = document.body;
-      var isDay = hour >= 7 && hour < 19;
-      if (isDay) {
-        body.style.backgroundColor = '#f3f3f3';
-        body.style.color = '#222';
-        document.querySelectorAll('.card').forEach(function(card) {
-          card.style.background = '#f3f3f3';
-          card.style.color = '#222';
-          card.style.borderColor = '#bbb';
-        });
-      } else {
-        body.style.backgroundColor = '#23272e';
-        body.style.color = '#f3f3f3';
-        document.querySelectorAll('.card').forEach(function(card) {
-          card.style.background = '#23272e';
-          card.style.color = '#f3f3f3';
-          card.style.borderColor = '#333';
-        });
-      }
-    }
-    window.onload = setDayNightTheme;
-  </script>
 </head>
 <body>
   <h1>Roie Shalom</h1>
   <p>Designer</p>
   <div class="card-grid">
     <a class="card" href="#" id="me-card">
+      <div class="card-animation"></div>
       <div class="card-label">Me</div>
     </a>
     <a class="card" href="#" id="portfolio-card">
+      <div class="card-animation"></div>
       <div class="card-label">Portfolio</div>
     </a>
     <a class="card" href="#" id="lab-card">
+      <div class="card-animation"></div>
       <div class="card-label">Lab</div>
     </a>
     <a class="card" href="#" id="cv-card">
+      <div class="card-animation"></div>
       <div class="card-label">CV</div>
     </a>
-    <a class="card new-card" href="#" id="linkedin-card">
+    <a class="card" href="#" id="linkedin-card">
+      <div class="card-animation"></div>
       <div class="card-label">Linkedin</div>
     </a>
-    <a class="card new-card" href="#" id="instagram-card">
+    <a class="card" href="#" id="instagram-card">
+      <div class="card-animation"></div>
       <div class="card-label">Instagram</div>
     </a>
-    <a class="card new-card" href="#" id="location-card">
+    <a class="card" href="#" id="location-card">
+      <div class="card-animation"></div>
       <div class="card-label">Location</div>
     </a>
-    <a class="card new-card" href="#" id="empty-card">
+    <a class="card" href="#" id="empty-card">
+      <div class="card-animation"></div>
       <div class="card-label"></div>
     </a>
   </div>
