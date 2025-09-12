@@ -6,6 +6,33 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <title>Roie Shalom</title>
+  <script>
+    // Theme switching based on user local time
+    function setDayNightTheme() {
+      var now = new Date();
+      var hour = now.getHours();
+      var body = document.body;
+      var isDay = hour >= 7 && hour < 19;
+      if (isDay) {
+        body.style.backgroundColor = '#f3f3f3';
+        body.style.color = '#222';
+        document.querySelectorAll('.card').forEach(function(card) {
+          card.style.background = '#f3f3f3';
+          card.style.color = '#222';
+          card.style.borderColor = '#bbb';
+        });
+      } else {
+        body.style.backgroundColor = '#23272e';
+        body.style.color = '#f3f3f3';
+        document.querySelectorAll('.card').forEach(function(card) {
+          card.style.background = '#23272e';
+          card.style.color = '#f3f3f3';
+          card.style.borderColor = '#333';
+        });
+      }
+    }
+    window.onload = setDayNightTheme;
+  </script>
 </head>
 <body>
   <h1>Roie Shalom</h1>
