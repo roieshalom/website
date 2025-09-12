@@ -57,16 +57,36 @@ h1 {
   justify-self: flex-start;
   font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
   font-size: 0.98em;
-  opacity: 1; /* Always visible */
-  transition: none; /* No fade-in when hovering */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.12);
 }
 
 .card:hover .card-label {
   opacity: 1;
 }
 
-.card:hover {
-  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.12);
+.new-card:hover {
+  background: #e0e0e0;
+  transform: scale(1.04);
+  transition: background 0.4s, transform 0.3s;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 /* Card Animation Styles */
@@ -80,52 +100,63 @@ h1 {
   pointer-events: none;
 }
 
-/* Individual Card Animations (already present, kept as-is) */
+/* Individual Card Animations */
+/* Me Card - Spin Animation */
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
 #me-card:hover .card-animation {
   animation: spin 2s linear infinite;
 }
 
+/* Portfolio Card - Bounce Animation */
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
 }
+
 #portfolio-card:hover .card-animation {
   animation: bounce 1s ease-in-out infinite;
 }
 
+/* Lab Card - Pulse Animation */
 @keyframes pulse {
   0%, 100% { transform: scale(1); opacity: 0.7; }
   50% { transform: scale(1.1); opacity: 1; }
 }
+
 #lab-card:hover .card-animation {
   animation: pulse 1.5s ease-in-out infinite;
   background: rgba(0, 119, 204, 0.1);
   border-radius: 14px;
 }
 
+/* CV Card - Flip Animation */
 @keyframes flip {
   0% { transform: rotateY(0); }
   50% { transform: rotateY(180deg); }
   100% { transform: rotateY(360deg); }
 }
+
 #cv-card:hover .card-animation {
   animation: flip 2s ease-in-out infinite;
 }
 
+/* LinkedIn Card - Fade Animation */
 @keyframes fade {
   0%, 100% { opacity: 0.3; }
   50% { opacity: 0.8; }
 }
+
 #linkedin-card:hover .card-animation {
   animation: fade 2s ease-in-out infinite;
   background: rgba(0, 119, 204, 0.2);
   border-radius: 14px;
 }
 
+/* Instagram Card - Rainbow Animation */
 @keyframes rainbow {
   0% { background: rgba(255, 0, 0, 0.2); }
   16% { background: rgba(255, 165, 0, 0.2); }
@@ -135,11 +166,13 @@ h1 {
   83% { background: rgba(75, 0, 130, 0.2); }
   100% { background: rgba(238, 130, 238, 0.2); }
 }
+
 #instagram-card:hover .card-animation {
   animation: rainbow 3s linear infinite;
   border-radius: 14px;
 }
 
+/* Location Card - Move Dot Animation */
 @keyframes move-dot {
   0% { transform: translate(0, 0); }
   25% { transform: translate(20px, 0); }
@@ -147,6 +180,7 @@ h1 {
   75% { transform: translate(0, 20px); }
   100% { transform: translate(0, 0); }
 }
+
 #location-card:hover .card-animation::before {
   content: '';
   position: absolute;
@@ -159,10 +193,12 @@ h1 {
   animation: move-dot 2s ease-in-out infinite;
 }
 
+/* Empty Card - Shrink Grow Animation */
 @keyframes shrink-grow {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(0.8); }
 }
+
 #empty-card:hover .card-animation {
   animation: shrink-grow 1.5s ease-in-out infinite;
 }
