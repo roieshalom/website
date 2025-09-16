@@ -22,7 +22,7 @@ h1 {
 }
 .card {
   background: #f3f3f3;
-  border: 1px solid #bbb;
+  border: 1px solid #ddd;
   color: #222;
   border-radius: 14px;
   box-shadow: none;
@@ -32,7 +32,7 @@ h1 {
   align-items: flex-start;
   justify-content: flex-start;
   text-decoration: none;
-  transition: box-shadow 0.3s, transform 0.3s, background 0.5s, color 0.5s;
+  transition: transform 0.3s, background 0.5s, color 0.5s, border-color 0.3s;
   position: relative;
   overflow: hidden;
   font-size: 0.95rem;
@@ -44,7 +44,7 @@ h1 {
 }
 .card-label {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   width: 100%;
   padding: 10px 12px 0 12px;
   font-weight: 200;
@@ -55,12 +55,12 @@ h1 {
   font-size: 0.98em;
   opacity: 1;
   transition: opacity 0.3s ease-in-out;
-}
-.card:hover {
-  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.12);
+  background: rgba(243, 243, 243, 0.9);
+  backdrop-filter: blur(2px);
 }
 .card:hover .card-label {
   opacity: 1;
+  background: rgba(243, 243, 243, 0.95);
 }
 .new-card:hover {
   background: #e0e0e0;
@@ -86,95 +86,112 @@ h1 {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 0;
+  z-index: 1;
   pointer-events: none;
 }
 /* Individual Card Animations */
-/* Me Card - Spin Animation */
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+/* Me Card - Gentle Rotate Animation */
+@keyframes gentle-rotate {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(2deg); }
+  100% { transform: rotate(0deg); }
+}
+#me-card:hover {
+  border-color: #0077cc;
 }
 #me-card:hover .card-animation {
-  animation: spin 2s linear infinite;
-}
-/* Portfolio Card - Bounce Animation */
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-#portfolio-card:hover .card-animation {
-  animation: bounce 1s ease-in-out infinite;
-}
-/* Lab Card - Pulse Animation */
-@keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 0.7; }
-  50% { transform: scale(1.1); opacity: 1; }
-}
-#lab-card:hover .card-animation {
-  animation: pulse 1.5s ease-in-out infinite;
-  background: rgba(0, 119, 204, 0.1);
+  animation: gentle-rotate 2s ease-in-out infinite;
+  background: linear-gradient(45deg, rgba(0, 119, 204, 0.05), rgba(0, 119, 204, 0.1));
   border-radius: 14px;
 }
-/* CV Card - Flip Animation */
-@keyframes flip {
-  0% { transform: rotateY(0); }
-  50% { transform: rotateY(180deg); }
-  100% { transform: rotateY(360deg); }
+/* Portfolio Card - Slide Border Animation */
+@keyframes slide-border {
+  0% { border-left: 3px solid #0077cc; }
+  25% { border-top: 3px solid #0077cc; border-left: 1px solid #ddd; }
+  50% { border-right: 3px solid #0077cc; border-top: 1px solid #ddd; }
+  75% { border-bottom: 3px solid #0077cc; border-right: 1px solid #ddd; }
+  100% { border-left: 3px solid #0077cc; border-bottom: 1px solid #ddd; }
+}
+#portfolio-card:hover {
+  animation: slide-border 2s linear infinite;
+  background: rgba(0, 119, 204, 0.02);
+}
+/* Lab Card - Glow Animation */
+@keyframes glow {
+  0%, 100% { border-color: #ddd; }
+  50% { border-color: #0077cc; box-shadow: 0 0 10px rgba(0, 119, 204, 0.3); }
+}
+#lab-card:hover {
+  animation: glow 2s ease-in-out infinite;
+  background: rgba(0, 119, 204, 0.03);
+}
+/* CV Card - Corner Highlight Animation */
+@keyframes corner-highlight {
+  0% { background: linear-gradient(135deg, rgba(0, 119, 204, 0.1) 0%, transparent 20%, transparent 100%); }
+  25% { background: linear-gradient(45deg, rgba(0, 119, 204, 0.1) 0%, transparent 20%, transparent 100%); }
+  50% { background: linear-gradient(-45deg, rgba(0, 119, 204, 0.1) 0%, transparent 20%, transparent 100%); }
+  75% { background: linear-gradient(-135deg, rgba(0, 119, 204, 0.1) 0%, transparent 20%, transparent 100%); }
+  100% { background: linear-gradient(135deg, rgba(0, 119, 204, 0.1) 0%, transparent 20%, transparent 100%); }
+}
+#cv-card:hover {
+  border-color: #0077cc;
 }
 #cv-card:hover .card-animation {
-  animation: flip 2s ease-in-out infinite;
-}
-/* LinkedIn Card - Fade Animation */
-@keyframes fade {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 0.8; }
-}
-#linkedin-card:hover .card-animation {
-  animation: fade 2s ease-in-out infinite;
-  background: rgba(0, 119, 204, 0.2);
+  animation: corner-highlight 3s ease-in-out infinite;
   border-radius: 14px;
 }
-/* Instagram Card - Rainbow Animation */
-@keyframes rainbow {
-  0% { background: rgba(255, 0, 0, 0.2); }
-  16% { background: rgba(255, 165, 0, 0.2); }
-  33% { background: rgba(255, 255, 0, 0.2); }
-  50% { background: rgba(0, 255, 0, 0.2); }
-  66% { background: rgba(0, 0, 255, 0.2); }
-  83% { background: rgba(75, 0, 130, 0.2); }
-  100% { background: rgba(238, 130, 238, 0.2); }
+/* LinkedIn Card - Gentle Pulse Border Animation */
+@keyframes pulse-border {
+  0%, 100% { border-width: 1px; border-color: #ddd; }
+  50% { border-width: 2px; border-color: #0077cc; }
+}
+#linkedin-card:hover {
+  animation: pulse-border 2s ease-in-out infinite;
+  background: rgba(0, 119, 204, 0.02);
+}
+/* Instagram Card - Gradient Shift Animation */
+@keyframes gradient-shift {
+  0% { background: linear-gradient(90deg, rgba(225, 48, 108, 0.1), rgba(255, 204, 0, 0.1)); }
+  33% { background: linear-gradient(90deg, rgba(255, 204, 0, 0.1), rgba(64, 93, 230, 0.1)); }
+  66% { background: linear-gradient(90deg, rgba(64, 93, 230, 0.1), rgba(225, 48, 108, 0.1)); }
+  100% { background: linear-gradient(90deg, rgba(225, 48, 108, 0.1), rgba(255, 204, 0, 0.1)); }
+}
+#instagram-card:hover {
+  border-color: #e1306c;
 }
 #instagram-card:hover .card-animation {
-  animation: rainbow 3s linear infinite;
+  animation: gradient-shift 3s ease-in-out infinite;
   border-radius: 14px;
 }
-/* Location Card - Move Dot Animation */
-@keyframes move-dot {
-  0% { transform: translate(0, 0); }
-  25% { transform: translate(20px, 0); }
-  50% { transform: translate(20px, 20px); }
-  75% { transform: translate(0, 20px); }
-  100% { transform: translate(0, 0); }
+/* Location Card - Compass Animation */
+@keyframes compass {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(90deg); }
+  50% { transform: rotate(180deg); }
+  75% { transform: rotate(270deg); }
+  100% { transform: rotate(360deg); }
+}
+#location-card:hover {
+  border-color: #0077cc;
 }
 #location-card:hover .card-animation::before {
-  content: '';
+  content: '◦';
   position: absolute;
-  width: 8px;
-  height: 8px;
-  background: #0077cc;
-  border-radius: 50%;
-  top: 20px;
-  left: 20px;
-  animation: move-dot 2s ease-in-out infinite;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  color: #0077cc;
+  animation: compass 4s linear infinite;
 }
-/* Empty Card - Shrink Grow Animation */
-@keyframes shrink-grow {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(0.8); }
+/* Empty Card - Breathing Animation */
+@keyframes breathe {
+  0%, 100% { border-color: #ddd; transform: scale(1); }
+  50% { border-color: #aaa; transform: scale(1.02); }
 }
-#empty-card:hover .card-animation {
-  animation: shrink-grow 1.5s ease-in-out infinite;
+#empty-card:hover {
+  animation: breathe 2s ease-in-out infinite;
+  background: rgba(170, 170, 170, 0.05);
 }
 @media (max-width: 900px) {
   .card-grid {
